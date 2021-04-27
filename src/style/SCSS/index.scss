@@ -101,34 +101,102 @@ select#dw-select {
 #cards-list {
     display: flex;
     flex-wrap: wrap;
-    
+
     @media screen and (max-width: 612px) {
         justify-content: space-between;
     }
+
     @media screen and (min-width: 613px) {
         margin: -12px 0 0 -12px;
         width: calc(100% + 12px);
     }
 
-    figure {
+    &>div {
+        display: grid;
         border-radius: 12px;
         border: 1px solid rgba($text, .1);
-        width: 300px;
+        width: 17vw;
         margin: 12px 0 0 12px;
         padding: 4px;
         line-height: 150%;
+        box-sizing: content-box;
+
+        &>div:first-child {
+            z-index: 2;
+            grid-row: 1;
+            grid-column: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 17vw;
+            opacity: 0;
+            transition: opacity .3s;
+
+            a {
+                display: block;
+                margin: 1vw 0;
+
+                &::after {
+                    content: '';
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 46px;
+                    height: 46px;
+                    font-family: 'Font Awesome 5 Free';
+                    border-radius: 50%;
+                    background-color: white;
+                    transition: color .3s;
+                    text-align: center;
+                }
+
+                &:first-child {
+                    &::after {
+                        content: '\f004';
+                        color: $secondary;
+                        padding-top: 3px;
+                        font-size: 1.8rem;
+                        box-shadow: 0 0 8px $secondary;
+                    }
+                }
     
+                &:nth-child(2)::after {
+                    content: '\f144';
+                    font-weight: 900;
+                    color: $primary;
+                    font-size: 3rem;
+                }
+
+                &:hover::after, &:nth-child(2):hover::after {
+                    color: #e3502b;
+                }
+            }
+        }
+
+        &:hover>div:first-child {
+            opacity: 1;
+            background-color: rgba($secondary, .7);
+        }
+    }
+
+    figure {
+        grid-row: 1;
+        grid-column: 1;
+        width: 17vw;
+
         img {
             width: 100%;
+            height: 17vw;
             object-fit: cover;
             margin-bottom: 4px;
             border-radius: 8px 8px 0 0;
         }
 
         figcaption {
-            padding: 8px;
+            padding: 8px 8px 0;
         }
-    
+
         span {
             display: block;
             font-size: .9rem;
@@ -138,15 +206,14 @@ select#dw-select {
             text-overflow: ellipsis;
 
             a {
-
                 &:hover {
-                text-decoration: underline;
+                    text-decoration: underline;
                 }
             }
         }
 
         @media screen and (max-width: 612px) {
-            width:48%;
+            width: 48%;
             margin-bottom: 20px;
         }
     }

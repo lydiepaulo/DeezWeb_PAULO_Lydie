@@ -36,18 +36,27 @@ document.querySelector("#search-button")
                     searchError.innerHTML = '';
 
                     for (let i = 0; i < resDataLength; i++) {
-                        let newCard = document.createElement("figure");
-                        let newCardCover = document.createElement("img");
-                        newCardCover.setAttribute("src", resultData[i].album.cover_big);
-                        let newCardCaption = document.createElement("figcaption");
+                        let newCard = document.createElement("div");
+                        let newCardLinks = document.createElement("div");
+                        let newFigure = document.createElement("figure");
+                        let newFigureCover = document.createElement("img");
+                        newFigureCover.setAttribute("src", resultData[i].album.cover_big);
+                        let newFigureCaption = document.createElement("figcaption");
 
                         cardsList.appendChild(newCard); //on crée la nouvelle card dans #cards-list
-                        newCard.appendChild(newCardCover); //on ajoute l'image de l'album
-                        newCard.appendChild(newCardCaption); //on ajoute figcaption
+                        newCard.appendChild(newCardLinks); //on crée div de liens dans la card
+                        newCard.appendChild(newFigure); //on crée figure dans la card
+                        newFigure.appendChild(newFigureCover); //on ajoute l'image de l'album dans figure
+                        newFigure.appendChild(newFigureCaption); //on ajoute figcaption dans figure
 
-                        newCardCaption.innerHTML += `
-                            <h3>${resultData[i].title_short}</h3>
-                            <span>${resultData[i].artist.name} / <a href="pages/album.html?${resultData[i].album.id}">${resultData[i].album.title}</a></span>
+                        newCardLinks.innerHTML += `
+                            <a href=""></a>
+                            <a href=""></a>
+                        `;
+
+                        newFigureCaption.innerHTML += `
+                            <h3><a href="pages/album.html?${resultData[i].title_short}">${resultData[i].title_short}</a></h3>
+                            <span><a href="pages/album.html?${resultData[i].album.id}">${resultData[i].artist.name}</a> / <a href="pages/album.html?${resultData[i].album.id}">${resultData[i].album.title}</a></span>
                             <span>${resultData[i].duration}</span>
                         `;
                     }
