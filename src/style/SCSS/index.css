@@ -98,9 +98,6 @@ select#dw-select {
   color: #151515;
 }
 
-/* #results {
-    display: none;
-} */
 #cards-list {
   display: flex;
   flex-wrap: wrap;
