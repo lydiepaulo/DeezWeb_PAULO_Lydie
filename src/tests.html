@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titre du document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/95c4170ec2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <h1>Deez'Web</h1>
+                </li>
+                <li><a href="#">Recherche</a></li>
+                <li><a href="#">Mes favoris</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="index">
+        <section>
+                <h2>Rechercher sur Deez'Web</h2>
+
+                <span id="search-bar_container">
+                    <input type="text" placeholder="Artiste, album, titre…" id="search-bar">
+                </span>
+                <select name="dw" id="dw-select">
+                    <option value="">Trier par…</option>
+                    <option value="titre">Titre</option>
+                    <option value="album">Album</option>
+                    <option value="artiste">Artiste</option>
+                </select>
+            
+                <input type="button" value="Rechercher" id="search-button" onclick=searchSongs()>
+
+
+            <div id="results">
+                <h2>Résultats</h2>
+                <div id="cards">
+                    
+                <ul id="album-list"></ul>
+                    
+                <!-- 
+                    <div class="card">
+                        <img src="https://static.fnac-static.com/multimedia/Images/FR/NR/55/83/bc/12354389/1540-1/tsp20200608104144/Map-of-The-Soul-7-The-Journey.jpg">
+                        <h3>Titre</h3>
+                        <span>Artiste / Album</span>
+                        <span>Durée</span>
+                    </div> 
+
+                    <div class="card">
+                        <img src="https://static.fnac-static.com/multimedia/Images/FR/NR/55/83/bc/12354389/1540-1/tsp20200608104144/Map-of-The-Soul-7-The-Journey.jpg">
+                        <h3>Titre</h3>
+                        <span>Artiste / Album</span>
+                        <span>Durée</span>
+                    </div> 
+                -->
+                
+
+                </div>
+            </div>
+            
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script src="./js/tests.js"></script>
+</body>
+
+</html>

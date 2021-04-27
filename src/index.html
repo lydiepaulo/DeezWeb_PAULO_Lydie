@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titre du document</title>
+    <link href="style/tools/reset.css" rel="stylesheet">
+    <link href="style/SCSS/global.css" rel="stylesheet">
+    <link href="style/SCSS/index.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/95c4170ec2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <h1>DeezWeb</h1>
+                </li>
+                <li><a href="#">Recherche</a></li>
+                <li><a href="#">Mes favoris</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="index">
+        <section>
+            <img src="images/music_app.svg" alt="Application de musique">
+        </section>
+        <section>
+            <div>
+                <h2>Rechercher sur DeezWeb</h2>
+
+                <span id="search-bar_container">
+                    <input type="search" placeholder="Artiste, album, titre…" id="search-bar">
+                </span>
+                <select name="dw" id="dw-select">
+                    <option value="">Trier par…</option>
+                    <option value="titre">Titre</option>
+                    <option value="album">Album</option>
+                    <option value="artiste">Artiste</option>
+                </select>
+            
+                <input type="button" value="Rechercher" id="search-button">
+            </div>
+
+            <div id="results">
+                <h2></h2>
+                <span id="search-error"></span>
+                <div id="cards-list">
+                    
+                
+                <!-- <figure>
+                    <img src="https://static.fnac-static.com/multimedia/Images/FR/NR/55/83/bc/12354389/1540-1/tsp20200608104144/Map-of-The-Soul-7-The-Journey.jpg">
+                    <figcaption>
+                        <h3>Titre</h3>
+                        <span>Artiste / Album</span>
+                        <span>Durée</span>
+                        <a href=""></a>
+                        <a href="">Écouter un extrait</a>
+                        <a href="">Consulter l'album</a>
+                        <a href="">Voir la fiche de l'artiste</a>
+                    </figcaption>
+                </figure> -->
+
+        
+                </div>
+            </div>
+            
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+@import '../tools/colors.scss';
+
+body {
+    background-color: $secondary;
+    color: $text;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+
+    @media screen and (max-width: 612px) {
+        text-align: center;        
+    }
+}
+
+nav {
+    position: sticky;
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (max-width: 612px) {
+            &:first-child {
+                width: 100%;
+                height: 80px;
+                align-items: center;
+            }
+            &:not(:first-child) {
+                padding: 0 4vw;
+            }
+        }
+        @media screen and (min-width: 613px) {
+            max-width: 200px;
+            width: 100%;
+            height: 80px;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: letter-spacing .5s;
+            @media screen and (max-width: 612px) {
+                font-size: .7rem;
+            }
+            @media screen and (min-width: 613px) {
+                font-size: .9rem;
+            }
+        }
+
+        &:not(:first-child)::after {
+            content: '';
+            width: 100%;
+            height: 1px;
+            margin-top: 15px;
+            background-color: $text;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+        }
+    }
+}
+
+h2 {
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+}
