@@ -62,20 +62,39 @@ document.querySelector("#search-button")
                             <a href="pages/track.html?id=${resultData[i].id}"></a>
                         `;
 
+                        const $favoriteTrack = document.createElement('button');
 
+                        $favoriteTrack.onclick = () => {
+                            $favoriteTrack.style.fontWeight = "900";
 
-                        const favoriteTrack = document.createElement('button');
-                        favoriteTrack.onclick = () => {
-                            let trackList = [];
-                            window.localStorage.getItem('trackId'); //on vérifie s'il y a déjà des infos affichées
-                            trackList.push(localStorage.setItem('trackId', JSON.stringify(resultData[i].id)));
+                            //on récupère les données existantes
+                            let trackList = localStorage.getItem('trackId');
+
+                            //s'il n'y en a pas on crée un tableau
+                            //s'il y en a, on transforme la string en tableau
+                            trackList = trackList ? trackList.split(',') : [];
+
+                            //ajout de nouvelles données au tableau
+                            trackList.push(resultData[i].id);
+
+                            //on enregistre dans localstorage
+                            localStorage.setItem('trackId', trackList.toString());
+
+                            /*
+                            let clicked = false;
+                            if (clicked == false) {
+                                document.querySelector("#favorite").style.fontWeight = "400";
+                            }
+                            else {
+                                let clicked = false;
+                                localStorage.removeItem(resultData[i].id);
+                            } */
                         };
-                        newFigCaption.appendChild(favoriteTrack);
 
-
+                        newFigure.appendChild($favoriteTrack);
 
                         let durationToHms = secondsToHms(resultData[i].duration); //on passe duration en heures/minutes/secondes
-                        
+
                         newFigCaption.innerHTML += `
                             <h3>${resultData[i].title_short}</h3>
                             <span><a href="pages/artist.html?id=${resultData[i].artist.id}">${resultData[i].artist.name}</a> / <a href="pages/album.html?id=${resultData[i].album.id}">${resultData[i].album.title}</a></span>

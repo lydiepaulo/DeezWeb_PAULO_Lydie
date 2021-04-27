@@ -196,22 +196,22 @@ select#dw-select {
                     }
                 }
             }
+        }
 
-            //bouton favori
-            button {
-                position: absolute;
-                z-index: 1;
-                bottom: 0px;
-                right: 8px;
+        //bouton favori
+        button {
+            //position: absolute;
+            z-index: 1;
+            bottom: 0px;
+            right: 8px;
 
-                &::after {
-                    content: '\f004';
-                    font-family: 'Font Awesome 5 Free';
-                }
+            &::after {
+                content: '\f004';
+                font-family: 'Font Awesome 5 Free';
+            }
 
-                &:hover::after {
-                    color: #e3502b;
-                }
+            &:hover::after {
+                color: #e3502b;
             }
         }
     }

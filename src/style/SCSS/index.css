@@ -186,16 +186,15 @@ select#dw-select {
 #cards-list figure figcaption span a:hover {
   text-decoration: underline;
 }
-#cards-list figure figcaption button {
-  position: absolute;
+#cards-list figure button {
   z-index: 1;
   bottom: 0px;
   right: 8px;
 }
-#cards-list figure figcaption button::after {
+#cards-list figure button::after {
   content: "";
   font-family: "Font Awesome 5 Free";
 }
-#cards-list figure figcaption button:hover::after {
+#cards-list figure button:hover::after {
   color: #e3502b;
 }
