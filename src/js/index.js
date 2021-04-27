@@ -1,5 +1,6 @@
 'use strict';
 let searchBar = document.querySelector('#search-bar'); //on récupère la valeur de search-bar
+let searchMode = document.querySelector('#dw-select'); //on récupère la valeur de dw-select
 let cardsList = document.querySelector("#cards-list");
 let resH2 = document.querySelector("#results h2");
 let searchError = document.querySelector('#search-error');
@@ -7,7 +8,7 @@ let searchError = document.querySelector('#search-error');
 document.querySelector("#search-button")
     .addEventListener("click", () => {
         if (searchBar.value) {
-            window.fetch(`https://api.deezer.com/search?q=${searchBar.value}`) //comment lier au résultat de la recherche ?
+            window.fetch(`https://api.deezer.com/search?q=${searchBar.value}&order=${searchMode.value}`) //comment lier au résultat de la recherche ?
                 .then(response => response.json())
                 .then(result => {
                     const resultData = result.data;
@@ -46,7 +47,7 @@ document.querySelector("#search-button")
 
                         newCardCaption.innerHTML += `
                             <h3>${resultData[i].title_short}</h3>
-                            <span>${resultData[i].artist.name} / ${resultData[i].album.title}</span>
+                            <span>${resultData[i].artist.name} / <a href="pages/album.html?${resultData[i].album.id}">${resultData[i].album.title}</a></span>
                             <span>${resultData[i].duration}</span>
                         `;
                     }

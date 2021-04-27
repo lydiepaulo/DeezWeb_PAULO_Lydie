@@ -120,29 +120,29 @@ select#dw-select {
   border-radius: 12px;
   border: 1px solid rgba(244, 244, 244, 0.1);
   width: 300px;
-  height: 450px;
   margin: 12px 0 0 12px;
   padding: 4px;
-  line-height: 180%;
+  line-height: 150%;
 }
 #cards-list figure img {
   width: 100%;
   object-fit: cover;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   border-radius: 8px 8px 0 0;
 }
 #cards-list figure figcaption {
   padding: 8px;
 }
-#cards-list figure h3 {
-  line-height: 150%;
-}
 #cards-list figure span {
   display: block;
   font-size: 0.9rem;
+  opacity: 0.8;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+#cards-list figure span a:hover {
+  text-decoration: underline;
 }
 @media screen and (max-width: 612px) {
   #cards-list figure {

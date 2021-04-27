@@ -20,7 +20,6 @@ ul {
 }
 
 a {
-    display: inline-block;
     color: inherit;
     text-decoration: none
 }
@@ -29,7 +28,7 @@ h3 {
     font-weight: 600;
 }
 
-input[type=search] {
+input[type=text] {
     background-color: inherit;
     color: inherit;
     outline: none;
@@ -41,7 +40,3 @@ input, select {
     font-size: inherit;
     font-family: inherit;
 }
-
-input[type="search"]::-webkit-search-cancel-button {
-    display: none;
-  }
