@@ -28,15 +28,22 @@ h3 {
     font-weight: 600;
 }
 
-input[type=text] {
-    background-color: inherit;
+input[type=text],
+button {
+    background-color: transparent;
     color: inherit;
     outline: none;
 }
 
-input, select {
+input,
+select,
+button {
     border: none;
-    cursor: pointer;
+    cursor: pointer!important;
     font-size: inherit;
     font-family: inherit;
+}
+
+button {
+    display: block;
 }

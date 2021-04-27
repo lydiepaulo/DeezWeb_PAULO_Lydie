@@ -5,6 +5,15 @@ let cardsList = document.querySelector("#cards-list");
 let resH2 = document.querySelector("#results h2");
 let searchError = document.querySelector('#search-error');
 
+function secondsToHms(duration) {
+    duration = Number(duration);
+
+    let min = Math.floor(duration % 3600 / 60);
+    let sec = Math.floor(duration % 3600 % 60);
+
+    return ('0' + min).slice(-2) + ":" + ('0' + sec).slice(-2);
+}
+
 document.querySelector("#search-button")
     .addEventListener("click", () => {
         if (searchBar.value) {
@@ -15,7 +24,7 @@ document.querySelector("#search-button")
                     //création du h2 "Résultats"
                     const resDataLength = resultData.length;
 
-                    //si input recherche vide, afficher "Pas de résultat"
+                    //si recherche sans résultat ou mauvaise recherche
                     if (resDataLength == 0) {
                         resH2.innerHTML = `<h2>Aucun résultat</h2>`;
                     }
@@ -41,23 +50,36 @@ document.querySelector("#search-button")
                         let newFigure = document.createElement("figure");
                         let newFigureCover = document.createElement("img");
                         newFigureCover.setAttribute("src", resultData[i].album.cover_big);
-                        let newFigureCaption = document.createElement("figcaption");
+                        let newFigCaption = document.createElement("figcaption");
 
                         cardsList.appendChild(newCard); //on crée la nouvelle card dans #cards-list
-                        newCard.appendChild(newCardLinks); //on crée div de liens dans la card
+                        newCard.appendChild(newCardLinks); //on crée div parent des liens dans la card
                         newCard.appendChild(newFigure); //on crée figure dans la card
                         newFigure.appendChild(newFigureCover); //on ajoute l'image de l'album dans figure
-                        newFigure.appendChild(newFigureCaption); //on ajoute figcaption dans figure
+                        newFigure.appendChild(newFigCaption); //on ajoute figcaption dans figure
 
                         newCardLinks.innerHTML += `
-                            <a href=""></a>
-                            <a href=""></a>
+                            <a href="pages/track.html?${resultData[i].id}"></a>
                         `;
 
-                        newFigureCaption.innerHTML += `
-                            <h3><a href="pages/album.html?${resultData[i].title_short}">${resultData[i].title_short}</a></h3>
-                            <span><a href="pages/album.html?${resultData[i].album.id}">${resultData[i].artist.name}</a> / <a href="pages/album.html?${resultData[i].album.id}">${resultData[i].album.title}</a></span>
-                            <span>${resultData[i].duration}</span>
+                        
+
+                        const favoriteTrack = document.createElement('button');
+                        favoriteTrack.onclick = () => {
+                            let trackList = [];
+                            window.localStorage.getItem('trackId'); //on vérifie s'il y a déjà des infos affichées
+                            trackList.push(localStorage.setItem('trackId', JSON.stringify(resultData[i].id)));
+                        };
+                        newFigCaption.appendChild(favoriteTrack);
+
+
+
+                        let durationToHms = secondsToHms(resultData[i].duration); //on passe duration en heures/minutes/secondes
+                        
+                        newFigCaption.innerHTML += `
+                            <h3>${resultData[i].title_short}</h3>
+                            <span><a href="pages/artist.html?${resultData[i].artist.id}">${resultData[i].artist.name}</a> / <a href="pages/album.html?${resultData[i].album.id}">${resultData[i].album.title}</a></span>
+                            <span>${durationToHms}</span>
                         `;
                     }
                 })
@@ -66,6 +88,8 @@ document.querySelector("#search-button")
             }); */
         }
         else {
-            searchError.innerHTML = `<h2>Aucun résultat</h2>`;
+            searchError.innerHTML = `<h2>Aucun résultat</h2>`; //erreur si recherche vide
+            cardsList.innerHTML = '';
+            resH2.innerHTML = '';
         }
     });

@@ -120,11 +120,10 @@ select#dw-select {
   width: 17vw;
   margin: 12px 0 0 12px;
   padding: 4px;
-  line-height: 150%;
   box-sizing: content-box;
 }
-#cards-list > div > div:first-child {
-  z-index: 2;
+#cards-list > div > div {
+  z-index: 1;
   grid-row: 1;
   grid-column: 1;
   display: flex;
@@ -135,42 +134,26 @@ select#dw-select {
   opacity: 0;
   transition: opacity 0.3s;
 }
-#cards-list > div > div:first-child a {
-  display: block;
-  margin: 1vw 0;
-}
-#cards-list > div > div:first-child a::after {
-  content: "";
+#cards-list > div > div a::after {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 46px;
   height: 46px;
-  font-family: "Font Awesome 5 Free";
-  border-radius: 50%;
   background-color: white;
-  transition: color 0.3s;
-  text-align: center;
-}
-#cards-list > div > div:first-child a:first-child::after {
-  content: "";
-  color: #151515;
-  padding-top: 3px;
-  font-size: 1.8rem;
-  box-shadow: 0 0 8px #151515;
-}
-#cards-list > div > div:first-child a:nth-child(2)::after {
-  content: "";
-  font-weight: 900;
   color: #e99d3e;
   font-size: 3rem;
+  border-radius: 50%;
+  transition: color 0.3s;
+  font-size: 3rem;
+  box-shadow: 0 0 12px #151515;
 }
-#cards-list > div > div:first-child a:hover::after, #cards-list > div > div:first-child a:nth-child(2):hover::after {
-  color: #e3502b;
-}
-#cards-list > div:hover > div:first-child {
+#cards-list > div:hover > div {
   opacity: 1;
-  background-color: rgba(21, 21, 21, 0.7);
+  background-color: rgba(21, 21, 21, 0.8);
 }
 #cards-list figure {
   grid-row: 1;
@@ -186,21 +169,33 @@ select#dw-select {
 }
 #cards-list figure figcaption {
   padding: 8px 8px 0;
+  position: relative;
 }
-#cards-list figure span {
+#cards-list figure figcaption h3 {
+  line-height: 120%;
+}
+#cards-list figure figcaption span {
   display: block;
   font-size: 0.9rem;
+  margin: 16px 0 4px;
   opacity: 0.8;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-#cards-list figure span a:hover {
+#cards-list figure figcaption span a:hover {
   text-decoration: underline;
 }
-@media screen and (max-width: 612px) {
-  #cards-list figure {
-    width: 48%;
-    margin-bottom: 20px;
-  }
+#cards-list figure figcaption button {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  right: 8px;
+}
+#cards-list figure figcaption button::after {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+#cards-list figure figcaption button:hover::after {
+  color: #e3502b;
 }
