@@ -59,10 +59,10 @@ document.querySelector("#search-button")
                         newFigure.appendChild(newFigCaption); //on ajoute figcaption dans figure
 
                         newCardLinks.innerHTML += `
-                            <a href="pages/track.html?${resultData[i].id}"></a>
+                            <a href="pages/track.html?id=${resultData[i].id}"></a>
                         `;
 
-                        
+
 
                         const favoriteTrack = document.createElement('button');
                         favoriteTrack.onclick = () => {
@@ -78,7 +78,7 @@ document.querySelector("#search-button")
                         
                         newFigCaption.innerHTML += `
                             <h3>${resultData[i].title_short}</h3>
-                            <span><a href="pages/artist.html?${resultData[i].artist.id}">${resultData[i].artist.name}</a> / <a href="pages/album.html?${resultData[i].album.id}">${resultData[i].album.title}</a></span>
+                            <span><a href="pages/artist.html?id=${resultData[i].artist.id}">${resultData[i].artist.name}</a> / <a href="pages/album.html?id=${resultData[i].album.id}">${resultData[i].album.title}</a></span>
                             <span>${durationToHms}</span>
                         `;
                     }
