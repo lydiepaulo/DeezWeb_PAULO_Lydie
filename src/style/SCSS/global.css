@@ -20,8 +20,8 @@ header {
 }
 @media screen and (min-width: 740px) {
   header {
-    padding: 0 3vw;
-    height: 90px;
+    padding: 0 2vw;
+    height: 95px;
   }
 }
 
@@ -49,10 +49,10 @@ nav li {
     height: 30px;
   }
   nav li:first-child {
-    max-width: 220px;
+    max-width: 200px;
   }
   nav li:not(:first-child) {
-    max-width: 180px;
+    max-width: 130px;
   }
 }
 nav li > a {
@@ -79,7 +79,53 @@ nav li:hover::after {
   transform: scaleX(1);
 }
 
+@media screen and (max-width: 1023px) {
+  main:not(#artist) {
+    margin: 0 4vw;
+  }
+}
+@media screen and (min-width: 1024px) {
+  main:not(#artist) {
+    margin: 0 10vw;
+  }
+}
+@media screen and (max-width: 739px) {
+  main:not(#artist) section:first-child {
+    padding-top: 140px;
+  }
+}
+@media screen and (min-width: 740px) {
+  main:not(#artist) section:first-child {
+    padding-top: 80px;
+  }
+}
+
 h2 {
   font-size: 2.3rem;
   margin-bottom: 20px;
+}
+
+#search-button {
+  display: block;
+  width: 280px;
+  margin: 24px 0;
+  padding: 10px;
+  border-radius: 60px;
+  background-color: #e99d3e;
+  color: #f4f4f4;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: all 0.5s;
+  font-family: "Montserrat", sans-serif;
+}
+@media screen and (max-width: 739px) {
+  #search-button {
+    margin: 24px auto;
+  }
+}
+
+#search-button:hover {
+  background-color: #f4f4f4;
+  color: #151515;
 }

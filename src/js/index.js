@@ -5,16 +5,6 @@ let cardsList = document.querySelector("#cards-list"); //post recherche, on cré
 let resH2 = document.querySelector("#searchBlock h2:last-child"); //on remplit le h2 selon les résultats
 let searchError = document.querySelector('#search-error'); //gestion des erreurs de recherche
 
-//fonction pour convertir les durées (secondes) en minutes et secondes
-function secondsToHms(duration) {
-    duration = Number(duration);
-
-    let min = Math.floor(duration % 3600 / 60);
-    let sec = Math.floor(duration % 3600 % 60);
-
-    return ('0' + min).slice(-2) + ":" + ('0' + sec).slice(-2);
-}
-
 //lancement de la recherche !
 document.querySelector("#search-button")
 .addEventListener("click", () => {
@@ -39,9 +29,8 @@ document.querySelector("#search-button")
                     }
                 }
 
-                //création d'une carte pour chaque résultat
-                cardsList.innerHTML = '';
-                searchError.innerHTML = '';
+                cardsList.innerHTML = ''; //le bloc se vide avant chaque recherche
+                searchError.innerHTML = ''; //h2 error se vide avant la recherche
 
                 for (let i = 0; i < resDataLength; i++) {
                     let newCard = document.createElement("div");

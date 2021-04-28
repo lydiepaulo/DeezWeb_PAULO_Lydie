@@ -1,26 +1,17 @@
 @import '../tools/colors.scss';
 
-#index {
-    margin: 0 4vw;
-}
-
 section:first-child {
     display: flex;
     align-items: center;
-    padding-bottom: 30px;
 
     @media screen and (max-width: 739px) {
-        padding-top: 140px;
         min-height: calc(100vh - 140px);
+        flex-direction: column;
+        padding-bottom: 30px;
     }
 
     @media screen and (min-width: 740px) {
-        padding-top: 80px;
         min-height: calc(100vh - 90px);
-    }
-
-    @media screen and (max-width: 739px) {
-        flex-direction: column;
     }
 
     //illustration
@@ -39,15 +30,10 @@ section:first-child {
 
         //affichage du nombre de résultat de recherche et gestion des erreurs
         #searchBlock {
-            margin-top: 4vw;
+            margin-top: 80px;
             height: 45px;
         }
     }
-}
-
-section:nth-child(2) {
-    display: flex;
-    justify-content: center;
 }
 
 #search-bar_container {
@@ -86,34 +72,11 @@ select#dw-select {
     }
 }
 
-#search-button {
-    display: block;
-    width: 280px;
-    margin: 24px 0;
-    padding: 10px;
-    border-radius: 60px;
-    background-color: $primary;
-    color: $text;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    transition: all .5s;
-    font-family: 'Montserrat', sans-serif;
-
-    @media screen and (max-width: 739px) {
-        margin: 24px auto;
-    }
-}
-
-#search-button:hover {
-    background-color: $text;
-    color: $secondary;
-}
-
 #cards-list {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    margin: -12px 0 0 -12px;
+    margin: -12px 0 4vw -12px;
     width: calc(100% + 12px);
 
     //équivaut à newCard
@@ -126,7 +89,7 @@ select#dw-select {
         box-sizing: content-box;
 
         @media screen and (max-width: 513px) {
-            width: 300px;
+            width: 282px;
         }
 
         @media screen and (min-width: 514px) {
@@ -143,7 +106,7 @@ select#dw-select {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 17vw;
+            height: 18vw;
             opacity: 0;
             transition: opacity .3s;
 
@@ -185,7 +148,7 @@ select#dw-select {
         position: relative;
 
         @media screen and (max-width: 513px) {
-            width: 300px;
+            width: 282px;
         }
 
         @media screen and (min-width: 514px) {
@@ -200,7 +163,7 @@ select#dw-select {
             border-radius: 8px 8px 0 0;
 
             @media screen and (max-width: 513px) {
-                width: 300px;
+                width: 282px;
             }
     
             @media screen and (min-width: 514px) {
@@ -220,15 +183,13 @@ select#dw-select {
                 display: block;
                 font-size: .9rem;
                 margin: 16px 0 4px;
-                opacity: .8;
+                opacity: .7;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
 
-                a {
-                    &:hover {
-                        text-decoration: underline;
-                    }
+                a:hover {
+                    text-decoration: underline;
                 }
             }
         }

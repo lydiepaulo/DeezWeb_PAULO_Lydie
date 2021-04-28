@@ -1,28 +1,18 @@
 @charset "UTF-8";
-#index {
-  margin: 0 4vw;
-}
-
 section:first-child {
   display: flex;
   align-items: center;
-  padding-bottom: 30px;
 }
 @media screen and (max-width: 739px) {
   section:first-child {
-    padding-top: 140px;
     min-height: calc(100vh - 140px);
+    flex-direction: column;
+    padding-bottom: 30px;
   }
 }
 @media screen and (min-width: 740px) {
   section:first-child {
-    padding-top: 80px;
     min-height: calc(100vh - 90px);
-  }
-}
-@media screen and (max-width: 739px) {
-  section:first-child {
-    flex-direction: column;
   }
 }
 section:first-child > div:first-child {
@@ -37,13 +27,8 @@ section:first-child > div:nth-child(2) {
   margin-top: 4vw;
 }
 section:first-child > div:nth-child(2) #searchBlock {
-  margin-top: 4vw;
+  margin-top: 80px;
   height: 45px;
-}
-
-section:nth-child(2) {
-  display: flex;
-  justify-content: center;
 }
 
 #search-bar_container {
@@ -83,35 +68,11 @@ select#dw-select {
   }
 }
 
-#search-button {
-  display: block;
-  width: 280px;
-  margin: 24px 0;
-  padding: 10px;
-  border-radius: 60px;
-  background-color: #e99d3e;
-  color: #f4f4f4;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  transition: all 0.5s;
-  font-family: "Montserrat", sans-serif;
-}
-@media screen and (max-width: 739px) {
-  #search-button {
-    margin: 24px auto;
-  }
-}
-
-#search-button:hover {
-  background-color: #f4f4f4;
-  color: #151515;
-}
-
 #cards-list {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  margin: -12px 0 0 -12px;
+  margin: -12px 0 4vw -12px;
   width: calc(100% + 12px);
 }
 #cards-list > div {
@@ -124,7 +85,7 @@ select#dw-select {
 }
 @media screen and (max-width: 513px) {
   #cards-list > div {
-    width: 300px;
+    width: 282px;
   }
 }
 @media screen and (min-width: 514px) {
@@ -141,7 +102,7 @@ select#dw-select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 17vw;
+  height: 18vw;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -176,7 +137,7 @@ select#dw-select {
 }
 @media screen and (max-width: 513px) {
   #cards-list figure {
-    width: 300px;
+    width: 282px;
   }
 }
 @media screen and (min-width: 514px) {
@@ -193,7 +154,7 @@ select#dw-select {
 }
 @media screen and (max-width: 513px) {
   #cards-list figure img {
-    width: 300px;
+    width: 282px;
   }
 }
 @media screen and (min-width: 514px) {
@@ -212,7 +173,7 @@ select#dw-select {
   display: block;
   font-size: 0.9rem;
   margin: 16px 0 4px;
-  opacity: 0.8;
+  opacity: 0.7;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

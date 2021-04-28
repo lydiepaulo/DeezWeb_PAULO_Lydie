@@ -20,8 +20,8 @@ header {
     width: 100vw;
 
     @media screen and (min-width: 740px) {
-        padding: 0 3vw;
-        height: 90px;
+        padding: 0 2vw;
+        height: 95px;
     }
 }
 
@@ -50,11 +50,11 @@ nav {
             height: 30px;
             
             &:first-child {
-                max-width: 220px;
+                max-width: 200px;
             }
             
             &:not(:first-child) {
-                max-width: 180px;
+                max-width: 130px;
             }
         }
 
@@ -86,7 +86,51 @@ nav {
     }
 }
 
+main:not(#artist) {
+    @media screen and (max-width: 1023px) {    
+        margin: 0 4vw;
+    }
+
+    @media screen and (min-width: 1024px) {
+        margin: 0 10vw;
+    }
+
+    section:first-child {
+        @media screen and (max-width: 739px) {
+            padding-top: 140px;
+        }
+    
+        @media screen and (min-width: 740px) {
+            padding-top: 80px;
+        }
+    }
+}
+
 h2 {
     font-size: 2.3rem;
     margin-bottom: 20px;
+}
+
+#search-button {
+    display: block;
+    width: 280px;
+    margin: 24px 0;
+    padding: 10px;
+    border-radius: 60px;
+    background-color: $primary;
+    color: $text;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: all .5s;
+    font-family: 'Montserrat', sans-serif;
+
+    @media screen and (max-width: 739px) {
+        margin: 24px auto;
+    }
+}
+
+#search-button:hover {
+    background-color: $text;
+    color: $secondary;
 }
