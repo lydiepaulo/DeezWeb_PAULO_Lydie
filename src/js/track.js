@@ -6,6 +6,14 @@ const trackId = urlSearchParams.get('id');
 const track = document.querySelector('#track');
 const trackCnt = document.querySelector('#track-ctn');
 
+function dateFormatter(myDate) {
+    let chunks = myDate.split('-');
+    let formattedDate = chunks[2]+'/'+chunks[1]+'/'+chunks[0];
+    
+    return formattedDate;
+}
+
+
 window.fetch(`https://api.deezer.com/track/${trackId}`) //on récupère les infos de l'API grâce à search-bar & dw-select
 .then(response => response.json())
 .then(result => {
@@ -28,6 +36,8 @@ window.fetch(`https://api.deezer.com/track/${trackId}`) //on récupère les info
 
     let durationToHms = secondsToHms(result.duration);
 
+    let trackRelease = dateFormatter(result.release_date);
+
     trackCnt.appendChild(trackInfos);
     trackInfos.innerHTML = `
             <img src="${result.album.cover_big}" alt="Couverture d'album">
@@ -40,7 +50,7 @@ window.fetch(`https://api.deezer.com/track/${trackId}`) //on récupère les info
 
             <h2>${result.title}</h2>
             <a href="pages/artist.html?id=${result.artist.id}">${result.artist.name}</a> • <span>${durationToHms}</span>
-            <p>sortie le ${result.release_date}</p>
+            <p>sortie le ${trackRelease}</p>
 
             <a href="${result.link}" id="search-button" target="_blank">Voir sur Deezer</a>
         `;
