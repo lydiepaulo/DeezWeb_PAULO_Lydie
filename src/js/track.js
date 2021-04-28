@@ -35,7 +35,9 @@ window.fetch(`https://api.deezer.com/track/${trackId}`) //on récupère les info
             </figure>
 
             <h2>${result.title}</h2>
-            <div id="trackLike"><a href="pages/artist.html?id=${result.artist.id}">${result.artist.name}</a> • <span>${durationToHms}</span> </div>
+            <div id="trackLike">
+                <a href="artist.html?id=${result.artist.id}">${result.artist.name}</a> • <span>${durationToHms}</span>
+            </div>
             <p>sortie le ${trackRelease}</p>
 
             <a href="${result.link}" id="search-button" target="_blank">Voir sur Deezer</a>
@@ -79,5 +81,5 @@ window.fetch(`https://api.deezer.com/track/${trackId}`) //on récupère les info
 
         let trackLike = document.querySelector('#trackLike');
         trackLike.appendChild($favoriteTrack);
-        
+
     });
