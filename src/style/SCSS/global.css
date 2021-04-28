@@ -80,22 +80,22 @@ nav li:hover::after {
 }
 
 @media screen and (max-width: 1023px) {
-  main:not(#artist) {
+  main:not(#artist, #track) {
     margin: 0 4vw;
   }
 }
 @media screen and (min-width: 1024px) {
-  main:not(#artist) {
+  main:not(#artist, #track) {
     margin: 0 10vw;
   }
 }
 @media screen and (max-width: 739px) {
-  main:not(#artist) section:first-child {
+  main:not(#artist, #track) section:first-child {
     padding-top: 140px;
   }
 }
 @media screen and (min-width: 740px) {
-  main:not(#artist) section:first-child {
+  main:not(#artist, #track) section:first-child {
     padding-top: 80px;
   }
 }

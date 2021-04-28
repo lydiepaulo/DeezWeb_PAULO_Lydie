@@ -38,6 +38,7 @@ document.querySelector("#search-button")
                     let newFigure = document.createElement("figure");
                     let newFigureCover = document.createElement("img");
                     newFigureCover.setAttribute("src", resultData[i].album.cover_big);
+                    newFigureCover.setAttribute("alt", "Couverture d'album");
                     let newFigCaption = document.createElement("figcaption");
 
                     cardsList.appendChild(newCard); //on crée la nouvelle card dans #cards-list

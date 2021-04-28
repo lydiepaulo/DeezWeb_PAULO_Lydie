@@ -19,7 +19,7 @@ window.fetch(`https://api.deezer.com/artist/${artistId}`) //on récupère les in
 .then(response => response.json())
 .then(result => {
     const artistCover = result.picture_xl;
-    artistCnt.style.backgroundImage = `url('${result.picture_xl}')`;
+    artistCnt.style.backgroundImage = `url('${artistCover}')`;
 
     let artistFans = numFormatter(result.nb_fan);
 
