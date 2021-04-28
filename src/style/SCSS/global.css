@@ -4,62 +4,72 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
 }
-@media screen and (max-width: 612px) {
+@media screen and (max-width: 739px) {
   body {
     text-align: center;
   }
 }
 
+header {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+}
+@media screen and (min-width: 740px) {
+  header {
+    padding: 0 3vw;
+    height: 90px;
+  }
+}
+
 nav {
-  position: sticky;
-  margin: 0;
-  padding: 0;
+  width: 100%;
 }
 nav li {
   display: inline-flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
-@media screen and (max-width: 612px) {
+@media screen and (max-width: 739px) {
   nav li:first-child {
     width: 100%;
-    height: 80px;
+    height: 30px;
     align-items: center;
+    padding-top: 30px;
   }
   nav li:not(:first-child) {
-    padding: 0 4vw;
+    padding: 20px 10px 30px;
   }
 }
-@media screen and (min-width: 613px) {
+@media screen and (min-width: 740px) {
   nav li {
-    max-width: 200px;
     width: 100%;
-    height: 80px;
+    height: 30px;
+  }
+  nav li:first-child {
+    max-width: 220px;
+  }
+  nav li:not(:first-child) {
+    max-width: 180px;
   }
 }
-nav li a {
+nav li > a {
+  display: block;
+  width: 100%;
+  height: 100%;
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2px;
   transition: letter-spacing 0.5s;
-}
-@media screen and (max-width: 612px) {
-  nav li a {
-    font-size: 0.7rem;
-  }
-}
-@media screen and (min-width: 613px) {
-  nav li a {
-    font-size: 0.9rem;
-  }
+  font-size: 0.9rem;
 }
 nav li:not(:first-child)::after {
   content: "";
   width: 100%;
   height: 1px;
-  margin-top: 15px;
   background-color: #f4f4f4;
   transform: scaleX(0);
   transform-origin: left;

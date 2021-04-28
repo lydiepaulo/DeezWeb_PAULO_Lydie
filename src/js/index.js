@@ -1,10 +1,11 @@
 'use strict';
-let searchBar = document.querySelector('#search-bar'); //on récupère la valeur de search-bar
-let searchMode = document.querySelector('#dw-select'); //on récupère la valeur de dw-select
-let cardsList = document.querySelector("#cards-list");
-let resH2 = document.querySelector("#results h2");
-let searchError = document.querySelector('#search-error');
+let searchBar = document.querySelector('#search-bar'); //pour la recherche, on récupère la valeur de l'input search-bar
+let searchMode = document.querySelector('#dw-select'); //pour la recherche, on récupère le mode de tri sélectionné par l'user dans dw-select
+let cardsList = document.querySelector("#cards-list"); //post recherche, on crée nos éléments dans cards-list
+let resH2 = document.querySelector("#searchBlock h2:last-child"); //on remplit le h2 selon les résultats
+let searchError = document.querySelector('#search-error'); //gestion des erreurs de recherche
 
+//fonction pour convertir les durées (secondes) en minutes et secondes
 function secondsToHms(duration) {
     duration = Number(duration);
 
@@ -14,33 +15,31 @@ function secondsToHms(duration) {
     return ('0' + min).slice(-2) + ":" + ('0' + sec).slice(-2);
 }
 
+//lancement de la recherche !
 document.querySelector("#search-button")
 .addEventListener("click", () => {
     if (searchBar.value) {
-        window.fetch(`https://api.deezer.com/search?q=${searchBar.value}&order=${searchMode.value}`) //comment lier au résultat de la recherche ?
+        window.fetch(`https://api.deezer.com/search?q=${searchBar.value}&order=${searchMode.value}`) //on récupère les infos de l'API grâce à search-bar & dw-select
             .then(response => response.json())
             .then(result => {
                 const resultData = result.data;
-                //création du h2 "Résultats"
-                const resDataLength = resultData.length;
+                const resDataLength = resultData.length; //variable du nombre de résultats à add au h2
 
                 //si recherche sans résultat ou mauvaise recherche
                 if (resDataLength == 0) {
-                    resH2.innerHTML = `<h2>Aucun résultat</h2>`;
+                    resH2.innerHTML = `Aucun résultat`;
                 }
                 else {
-                    //afficher nombre de résultats
+                //afficher nombre de résultats
                     if (resDataLength < 2) {
-                        resH2.innerHTML = `<h2>${resDataLength} Résultat</h2>`;
+                        resH2.innerHTML = `${resDataLength} Résultat`;
                     }
                     else {
-                        resH2.innerHTML = `<h2>${resDataLength} Résultats</h2>`;
+                        resH2.innerHTML = `${resDataLength} Résultats`;
                     }
                 }
 
-                document.querySelector('#results').insertBefore(resH2, cardsList);
-
-                //création des cartes pour chaque résultat
+                //création d'une carte pour chaque résultat
                 cardsList.innerHTML = '';
                 searchError.innerHTML = '';
 
@@ -60,29 +59,48 @@ document.querySelector("#search-button")
 
 
                     let trackId = resultData[i].id;
-
+                
+                //bouton qui renvoie à la page de la track
                     newCardLinks.innerHTML += `
                         <a href="pages/track.html?id=${trackId}"></a>
                     `;
 
+                //bouton favori
                     const $favoriteTrack = document.createElement('button');
 
-                    $favoriteTrack.addEventListener("click", () => {
+                //on vérifie si certaines musiques sont en fav ou non
+                    let trackList = localStorage.getItem('tracksIds');
+                    trackList = trackList ? JSON.parse(trackList) : [];
+
+                    if (trackList.includes(trackId)) {
                         $favoriteTrack.style.cssText = "font-weight: 900; color: #e3502b"; //on remplit les cœurs au clic
+                    }
+                    else {
+                        $favoriteTrack.style.cssText = "font-weight: 400"; //on remplit les cœurs au clic
+                    }
+                
+                //on fait un event au clic pour mettre des musiques en fav
+                    $favoriteTrack.addEventListener("click", () => {
+                        let track_List = localStorage.getItem('tracksIds');
 
-                        //on récupère les données existantes
-                        let trackList = localStorage.getItem('trackIds');
+                    //s'il n'y en a pas on crée un tableau | s'il y en a, on transforme la string en tableau
+                        track_List = track_List ? JSON.parse(track_List) : [];
 
-                        //s'il n'y en a pas on crée un tableau | s'il y en a, on transforme la string en tableau
-                        trackList = trackList ? trackList.split(',') : [];
+                    //on vérifie si l'id est déjà dans le tableau. si oui on l'enlève | sinon on l'ajoute
+                        console.log(track_List.includes(trackId));
 
-                        //on vérifie si l'id est déjà dans le tableau. si oui on l'enlève | sinon on l'ajoute
-                        /* trackList.push(trackId); */
-                        console.log(trackList.includes(trackId));
-                        trackList.includes(trackId) ? trackList.removeItem(trackId) : trackList.push(trackId);
+                        if (track_List.includes(trackId)) {
+                        //déjà présent : on retire + vide le cœur au clic
+                            track_List.splice(track_List.indexOf(trackId), 1);
+                            $favoriteTrack.style.cssText = "font-weight: 400";
+                        }
+                        else {
+                        //pas encore là : on push l'id + remplit le cœur au clic
+                            track_List.push(trackId);
+                            $favoriteTrack.style.cssText = "font-weight: 900; color: #e3502b"; 
+                        }
 
-                        //on enregistre dans localstorage
-                        localStorage.setItem('trackIds', trackList.toString());
+                        localStorage.setItem('tracksIds', JSON.stringify(track_List)); //on enregistre dans localstorage
                     });
 
                     newFigure.appendChild($favoriteTrack);
@@ -101,7 +119,7 @@ document.querySelector("#search-button")
         }); */
     }
     else {
-        searchError.innerHTML = `<h2>Aucun résultat</h2>`; //erreur si recherche vide
+        searchError.innerHTML = `<h2>Aucun résultat</h2>`; //gestion de l'erreur "recherche vide"
         cardsList.innerHTML = '';
         resH2.innerHTML = '';
     }
