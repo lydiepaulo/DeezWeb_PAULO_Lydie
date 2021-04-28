@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   position: relative;
 }
@@ -64,7 +65,7 @@ main > * {
 #track-ctn audio {
   margin-bottom: 20px;
 }
-#track-ctn a:hover {
+#track-ctn a:hover:not(#search-button) {
   text-decoration: underline;
 }
 #track-ctn span {
@@ -79,4 +80,15 @@ main > * {
 }
 #track-ctn #search-button {
   margin: 0 auto 4vw;
+}
+#track-ctn button {
+  display: inline-block;
+  margin-left: 15px;
+}
+#track-ctn button::after {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+#track-ctn button:hover::after {
+  color: #e3502b;
 }

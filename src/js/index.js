@@ -47,7 +47,6 @@ document.querySelector("#search-button")
                     newFigure.appendChild(newFigureCover); //on ajoute l'image de l'album dans figure
                     newFigure.appendChild(newFigCaption); //on ajoute figcaption dans figure
 
-
                     let trackId = resultData[i].id;
                 
                 //bouton qui renvoie à la page de la track
@@ -77,8 +76,6 @@ document.querySelector("#search-button")
                         track_List = track_List ? JSON.parse(track_List) : [];
 
                     //on vérifie si l'id est déjà dans le tableau. si oui on l'enlève | sinon on l'ajoute
-                        console.log(track_List.includes(trackId));
-
                         if (track_List.includes(trackId)) {
                         //déjà présent : on retire + vide le cœur au clic
                             track_List.splice(track_List.indexOf(trackId), 1);

@@ -65,7 +65,7 @@ main {
         margin-bottom: 20px;
     }
 
-    a:hover {
+    a:hover:not(#search-button) {
         text-decoration: underline;
     }
 
@@ -83,5 +83,20 @@ main {
 
     #search-button {
         margin: 0 auto 4vw;
+    }
+
+    //bouton favori
+    button {
+        display: inline-block;
+        margin-left: 15px;
+
+        &::after {
+            content: '\f004';
+            font-family: 'Font Awesome 5 Free';
+        }
+
+        &:hover::after {
+            color: $primary2;
+        }
     }
 }

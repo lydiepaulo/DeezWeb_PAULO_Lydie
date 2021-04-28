@@ -1,15 +1,12 @@
 'use strict';
 const searchParams = location.search;
 const urlSearchParams = new URLSearchParams(searchParams);
-console.log(urlSearchParams.get('id'));
 const albumId = urlSearchParams.get('id');
 let albumCnt = document.querySelector('#album-cnt');
 
 window.fetch(`https://api.deezer.com/album/${albumId}`) //on récupère les infos de l'API grâce à search-bar & dw-select
 .then(response => response.json())
 .then(result => {
-    console.log(result);
-
     //on crée le html
     albumCnt.innerHTML = `
         <div>
@@ -35,10 +32,6 @@ window.fetch(`https://api.deezer.com/album/${albumId}`) //on récupère les info
         `;
 
         document.querySelector('#track-list').appendChild(newTrack); //on crée les liens vers les chansons
-
-        console.log(trackList[i].title);
-        console.log(trackList[i].link);
-        console.log(trackList[i].duration);
     }
 
 });
