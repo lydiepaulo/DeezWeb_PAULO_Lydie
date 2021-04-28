@@ -135,22 +135,28 @@ select#dw-select {
             transition: opacity .3s;
 
             //lien "play" : page track
-            a::after {
-                content: '\f144';
-                font-family: 'Font Awesome 5 Free';
-                font-weight: 900;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 46px;
-                height: 46px;
-                background-color: white;
-                color: $primary;
-                font-size: 3rem;
-                border-radius: 50%;
-                transition: color .3s;
-                font-size: 3rem;
-                box-shadow: 0 0 12px $secondary;
+            a {
+                &::after {
+                    content: '\f144';
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 900;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 46px;
+                    height: 46px;
+                    background-color: white;
+                    color: $primary;
+                    font-size: 3rem;
+                    border-radius: 50%;
+                    transition: color .3s;
+                    font-size: 3rem;
+                    box-shadow: 0 0 12px $secondary;
+                }
+
+                &:hover::after {
+                    color: $primary2;
+                }
             }
         }
 
@@ -164,6 +170,7 @@ select#dw-select {
         grid-row: 1;
         grid-column: 1;
         width: 17vw;
+        position: relative;
 
         img {
             width: 100%;
@@ -175,7 +182,6 @@ select#dw-select {
 
         figcaption {
             padding: 8px 8px 0;
-            position: relative;
 
             h3 {
                 line-height: 120%;
@@ -200,9 +206,9 @@ select#dw-select {
 
         //bouton favori
         button {
-            //position: absolute;
+            position: absolute;
             z-index: 1;
-            bottom: 0px;
+            bottom: 4px;
             right: 8px;
 
             &::after {
@@ -211,7 +217,7 @@ select#dw-select {
             }
 
             &:hover::after {
-                color: #e3502b;
+                color: $primary2;
             }
         }
     }

@@ -151,6 +151,9 @@ select#dw-select {
   font-size: 3rem;
   box-shadow: 0 0 12px #151515;
 }
+#cards-list > div > div a:hover::after {
+  color: #e3502b;
+}
 #cards-list > div:hover > div {
   opacity: 1;
   background-color: rgba(21, 21, 21, 0.8);
@@ -159,6 +162,7 @@ select#dw-select {
   grid-row: 1;
   grid-column: 1;
   width: 17vw;
+  position: relative;
 }
 #cards-list figure img {
   width: 100%;
@@ -169,7 +173,6 @@ select#dw-select {
 }
 #cards-list figure figcaption {
   padding: 8px 8px 0;
-  position: relative;
 }
 #cards-list figure figcaption h3 {
   line-height: 120%;
@@ -187,8 +190,9 @@ select#dw-select {
   text-decoration: underline;
 }
 #cards-list figure button {
+  position: absolute;
   z-index: 1;
-  bottom: 0px;
+  bottom: 4px;
   right: 8px;
 }
 #cards-list figure button::after {
