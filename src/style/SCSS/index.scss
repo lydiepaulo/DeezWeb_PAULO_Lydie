@@ -106,9 +106,17 @@ select#dw-select {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 18vw;
             opacity: 0;
             transition: opacity .3s;
+
+            @media screen and (max-width: 513px) {
+                height: 282px;
+            }
+    
+            @media screen and (min-width: 514px) {
+                min-height: 220px;
+                height: 17vw;
+            }
 
             //lien "play" : page track
             a {

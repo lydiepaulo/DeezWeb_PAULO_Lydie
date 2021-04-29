@@ -78,8 +78,8 @@ section:nth-child(2) > div:first-child span:first-child {
 #track-list {
   margin-bottom: 4vw;
   text-align: left;
-  counter-reset: section;
   font-size: 1rem;
+  counter-reset: section;
 }
 #track-list div {
   border-top: 1px solid rgba(244, 244, 244, 0.1);

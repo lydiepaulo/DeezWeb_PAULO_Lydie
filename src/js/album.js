@@ -16,7 +16,6 @@ window.fetch(`https://api.deezer.com/album/${albumId}`) //on récupère les info
             <span>Album</span>
             <h2>${result.title}</h2>
             <span>Artist •</span> <a id="album-artist" href="artist.html?id=${result.artist.id}">${result.artist.name}</a>
-            <div id="ranking">${result.rating}</div>
             <a href="https://www.deezer.com/fr/artist/${result.artist.id}" id="search-button" target="_blank">Voir sur Deezer</a>
         </div>
     `;

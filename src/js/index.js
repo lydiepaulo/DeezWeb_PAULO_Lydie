@@ -12,6 +12,8 @@ document.querySelector("#search-button")
         window.fetch(`https://api.deezer.com/search?q=${searchBar.value}&order=${searchMode.value}`) //on récupère les infos de l'API grâce à search-bar & dw-select
             .then(response => response.json())
             .then(result => {
+                console.log(result);
+
                 const resultData = result.data;
                 const resDataLength = resultData.length; //variable du nombre de résultats à add au h2
 

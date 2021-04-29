@@ -45,5 +45,5 @@ button {
 }
 
 button {
-    display: block;
+    display: inline-block;
 }

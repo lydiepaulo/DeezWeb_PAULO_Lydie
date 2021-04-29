@@ -102,9 +102,19 @@ select#dw-select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 18vw;
   opacity: 0;
   transition: opacity 0.3s;
+}
+@media screen and (max-width: 513px) {
+  #cards-list > div > div {
+    height: 282px;
+  }
+}
+@media screen and (min-width: 514px) {
+  #cards-list > div > div {
+    min-height: 220px;
+    height: 17vw;
+  }
 }
 #cards-list > div > div a::after {
   content: "";

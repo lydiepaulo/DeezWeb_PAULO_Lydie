@@ -56,7 +56,7 @@ window.fetch(`https://api.deezer.com/track/${trackId}`) //on récupère les info
         else {
             $favoriteTrack.style.cssText = "font-weight: 400"; //on remplit les cœurs au clic
         }
-
+        
         //on fait un event au clic pour mettre des musiques en fav
         $favoriteTrack.addEventListener("click", () => {
             let track_List = localStorage.getItem('tracksIds');
